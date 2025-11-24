@@ -1,12 +1,9 @@
 ---
-banner: "![[neon_work_notes.jpg]]"
 aliases: []
 tags: [MOC]
 title: Work Notes MOC
 date_created: 2024-03-04-Monday
 date_modified: 2024-06-17-Monday
-banner: "![[neon_work_notes.jpg]]"
-banner_y: 0.592
 ---
 
 [[ellipsis dashboard]]

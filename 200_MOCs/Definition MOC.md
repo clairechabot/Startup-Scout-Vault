@@ -1,10 +1,7 @@
 ---
-banner: "![[neon_definitions.jpg]]"
 mapofcontent: yes
 title: The Codex
 moc_type: index
-banner: "![[neon_definitions.jpg]]"
-banner_y: 0.32
 tags: [MOC, definitions, glossary]
 ---
 

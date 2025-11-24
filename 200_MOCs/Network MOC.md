@@ -1,10 +1,7 @@
 ---
-banner: "![[neon_network.jpg]]"
 mapofcontent: yes
 title: Network MOC
 moc_type: index
-banner: "![[neon_network.jpg]]"
-banner_y: 0.532
 tags: [MOC, network, crm]
 ---
 

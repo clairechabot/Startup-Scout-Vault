@@ -6,8 +6,6 @@ cssclasses:
 title: The Cockpit
 date_created: 2024-04-20-Saturday
 date_modified: 2025-11-23
-banner: "![[neon_wave.png]]"
-banner_y: 0.68
 ---
 
 ```widgets

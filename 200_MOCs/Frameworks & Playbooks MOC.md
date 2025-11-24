@@ -1,10 +1,7 @@
 ---
-banner: "![[neon_framework.jpg]]"
 mapofcontent: yes
 title: Frameworks & Playbooks
 moc_type: index
-banner: "![[neon_framework.jpg]]"
-banner_y: 0.456
 tags: [MOC, frameworks, strategy]
 ---
 

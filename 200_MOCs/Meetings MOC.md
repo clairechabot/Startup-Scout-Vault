@@ -1,10 +1,7 @@
 ---
-banner: "![[neon_meeting.jpg]]"
 mapofcontent: yes
 title: Meetings MOC
 moc_type: index
-banner: "![[neon_meeting.jpg]]"
-banner_y: 0.572
 tags: [MOC, meetings, archive]
 ---
 

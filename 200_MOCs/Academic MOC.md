@@ -2,8 +2,6 @@
 mapofcontent: yes
 title: The Academy
 moc_type: index
-banner: "![[library.jpg]]"
-banner_y: 0.544
 tags: [MOC, knowledge, learning]
 ---
 
