@@ -1,4 +1,5 @@
 ---
+banner: "![[neon_startup.jpg]]"
 mapofcontent: yes
 title: Deals MOC
 moc_type: index

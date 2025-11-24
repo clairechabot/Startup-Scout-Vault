@@ -1,4 +1,5 @@
 ---
+banner: "![[neon_work_notes.jpg]]"
 aliases: []
 tags: [MOC]
 title: Work Notes MOC

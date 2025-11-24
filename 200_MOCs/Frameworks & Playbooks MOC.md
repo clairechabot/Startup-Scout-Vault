@@ -1,4 +1,5 @@
 ---
+banner: "![[neon_framework.jpg]]"
 mapofcontent: yes
 title: Frameworks & Playbooks
 moc_type: index

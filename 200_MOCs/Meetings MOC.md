@@ -1,4 +1,5 @@
 ---
+banner: "![[neon_meeting.jpg]]"
 mapofcontent: yes
 title: Meetings MOC
 moc_type: index

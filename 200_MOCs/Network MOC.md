@@ -1,4 +1,5 @@
 ---
+banner: "![[neon_network.jpg]]"
 mapofcontent: yes
 title: Network MOC
 moc_type: index

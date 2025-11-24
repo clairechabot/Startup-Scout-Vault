@@ -159,12 +159,22 @@
             "state": {
               "type": "online.tokuhirom.obsidian-pomodoro-plugin",
               "state": {},
+              "icon": "clock",
+              "title": "Pomodoro timer"
+            }
+          },
+          {
+            "id": "63a6557627cb486a",
+            "type": "leaf",
+            "state": {
+              "type": "online.tokuhirom.obsidian-pomodoro-plugin",
+              "state": {},
               "icon": "lucide-ghost",
               "title": "online.tokuhirom.obsidian-pomodoro-plugin"
             }
           },
           {
-            "id": "63a6557627cb486a",
+            "id": "8f3dd955f0bb8ad1",
             "type": "leaf",
             "state": {
               "type": "online.tokuhirom.obsidian-pomodoro-plugin",
@@ -187,8 +197,8 @@
             "state": {
               "type": "copilot-chat-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "copilot-chat-view"
+              "icon": "message-square",
+              "title": "Copilot"
             }
           }
         ]
@@ -204,8 +214,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "calendar"
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
             }
           },
           {
@@ -255,6 +265,7 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "callout-manager:Insert Callout": false,
+      "completed-task-display:Task Hider": false,
       "homepage:Open homepage": false,
       "janitor:Janitor: scan vault": false,
       "omnisearch:Omnisearch": false,
@@ -263,14 +274,20 @@
       "time-ruler:Open Time Ruler": false,
       "widgets:Add widget": false,
       "obsidian-wordy:Wordy view": false,
-      "copilot:Open Copilot Chat": false,
-      "completed-task-display:Task Hider": false
+      "copilot:Open Copilot Chat": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "32d219313f5042b0",
   "lastOpenFiles": [
-    "100_Network/Scout Submissions/Hypatia Systems - Scout Submission.md",
+    "200_MOCs/Work Notes MOC.md",
+    "200_MOCs/Startup MOC.md",
+    "200_MOCs/Network MOC.md",
+    "200_MOCs/Meetings MOC.md",
+    "200_MOCs/Frameworks & Playbooks MOC.md",
+    "200_MOCs/Definition MOC.md",
+    "200_MOCs/Academic MOC.md",
     "ellipsis dashboard.md",
+    "100_Network/Scout Submissions/Hypatia Systems - Scout Submission.md",
     "100_Network/Work Notes/2025/11-November/2025-11-24-Monday.md",
     "Templates/Daily Note.md",
     "100_Network/Work Notes/2025/11-November/2025-11-23-Sunday.md",
@@ -285,24 +302,17 @@
     "100 Network/Work Notes/2025",
     "100 Network/Work Notes",
     "100 Network",
-    "200_MOCs/Work Notes MOC.md",
-    "200_MOCs/Startup MOC.md",
     "100_Network/Scout Submissions/New Scout Form.md",
     "100_Network/Scout Submissions/Untitled.md",
     "100_Network/Startups/Hypatia Systems.md",
     "100_Network/Startups/New Startup.md",
-    "200_MOCs/Network MOC.md",
     "100_Network/Contacts/New Contact.md",
-    "200_MOCs/Meetings MOC.md",
     "100_Network/Meetings/Intro Call.md",
     "100_Network/Meetings/Meeting.md",
-    "200_MOCs/Frameworks & Playbooks MOC.md",
     "000_Admin/Market Maps/New Market Map.md",
     "000_Admin/Frameworks/Screening/New Screening Framework.md",
     "000_Admin/Frameworks/Pitches/New Pitch Framework.md",
     "000_Admin/Due Diligence Checklists/New Checklist.md",
-    "000_Admin/Outreach Templates/New Outreach Template.md",
-    "200_MOCs/Definition MOC.md",
     "300_Knowledge Base/Classes/History of Scientific Revolutions",
     "Files/Attachments/Pasted image 20250910155041.png",
     "Files/Attachments/endre-tech-pre-seed.pdf",

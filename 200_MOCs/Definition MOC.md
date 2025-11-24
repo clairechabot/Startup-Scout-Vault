@@ -1,4 +1,5 @@
 ---
+banner: "![[neon_definitions.jpg]]"
 mapofcontent: yes
 title: The Codex
 moc_type: index
