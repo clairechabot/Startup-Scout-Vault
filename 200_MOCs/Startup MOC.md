@@ -2,7 +2,6 @@
 mapofcontent: yes
 title: Deals MOC
 moc_type: index
-banner: "![[neon_startup.jpg]]"
 tags: [MOC, deals, startups]
 ---
 
