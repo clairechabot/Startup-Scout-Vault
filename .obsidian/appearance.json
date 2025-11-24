@@ -1,0 +1,22 @@
+{
+  "accentColor": "",
+  "cssTheme": "80s Neon",
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "supercharged-links-gen",
+    "Book cover",
+    "Cornell",
+    "tabbed",
+    "MCL Gallery Cards",
+    "MCL Multicolumn",
+    "image_align_right",
+    "dashboard",
+    "tame-buttons"
+  ],
+  "translucency": true,
+  "baseFontSize": 12,
+  "interfaceFontFamily": "Source Serif",
+  "showRibbon": true,
+  "nativeMenus": false,
+  "baseFontSizeAction": true
+}

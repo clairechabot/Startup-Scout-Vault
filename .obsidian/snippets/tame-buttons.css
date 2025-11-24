@@ -1,0 +1,35 @@
+/* --- TARGETED FIX: Black Text ONLY on Inputs --- */
+
+/* 1. Target the "Pill" Buttons (Inline Selects) */
+/* This is the specific class for those cyan dropdown buttons */
+.mb-inline-select,
+div[class*="mb-inline-select"] {
+    /* Keep your theme's bright accent background */
+    background-color: var(--interactive-accent) !important;
+    
+    /* Force Text to Black */
+    color: #000000 !important;
+    --text-normal: #000000 !important; /* Override theme variable */
+    
+    /* Make it bold and add a border */
+    font-weight: 800 !important;
+    border: 1px solid #000000 !important;
+}
+
+/* 2. Target Text Boxes and Date Pickers */
+/* We make these Light Grey so black text is readable */
+.meta-bind-input-view input,
+.meta-bind-input-view select,
+.meta-bind-input-view textarea {
+    background-color: #e0e0e0 !important; /* Light Grey */
+    color: #000000 !important; /* Black Text */
+    border: 2px solid var(--interactive-accent) !important; /* Neon Border */
+}
+
+/* 3. Fix the Arrows (Chevrons) inside the buttons */
+/* If we don't fix this, the arrow stays white and disappears */
+.mb-inline-select svg,
+div[class*="mb-inline-select"] svg {
+    stroke: #000000 !important;
+    color: #000000 !important;
+}

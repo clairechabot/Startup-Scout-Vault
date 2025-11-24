@@ -1,0 +1,45 @@
+{
+  "settings": {
+    "migrated": 6,
+    "iconPacksPath": ".obsidian/icons",
+    "fontSize": 16,
+    "emojiStyle": "native",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "LiBrain",
+      "LiBookmarkPlus",
+      "LiPencil",
+      "LiPersonStanding",
+      "LiCalendarCheck"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": false,
+    "iconInTitleEnabled": false,
+    "iconInTitlePosition": "above",
+    "iconInFrontmatterEnabled": false,
+    "iconInFrontmatterFieldName": "icon",
+    "iconColorInFrontmatterFieldName": "iconColor",
+    "iconsBackgroundCheckEnabled": false,
+    "iconsInNotesEnabled": true,
+    "iconsInLinksEnabled": true,
+    "iconIdentifier": ":",
+    "lucideIconPackType": "native",
+    "debugMode": false,
+    "useInternalPlugins": false
+  },
+  "200_MOCs/Definition MOC.md": "LiBookText",
+  "200_MOCs/Frameworks & Playbooks MOC.md": "LiArrowUpWideNarrow",
+  "200_MOCs/Meetings MOC.md": "LiCalendarCheck",
+  "200_MOCs/Work Notes MOC.md": "LiPencil",
+  "200_MOCs/Startup MOC.md": "LiBookmarkPlus",
+  "200_MOCs/Network MOC.md": "LiPersonStanding",
+  "200_MOCs/Academic MOC.md": "LiGraduationCap",
+  "ellipsis dashboard.md": "LiBrain"
+}

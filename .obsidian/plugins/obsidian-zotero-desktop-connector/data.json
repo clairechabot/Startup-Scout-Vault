@@ -1,0 +1,27 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "500_Resources/Research/Paper Notes",
+  "pdfExportImageDPI": 120,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [
+    {
+      "name": "Nature Citation Format",
+      "format": "formatted-citation",
+      "cslStyle": "nature"
+    }
+  ],
+  "exportFormats": [
+    {
+      "name": "Research Paper",
+      "outputPathTemplate": "500_Resources/Research/Paper Notes/@{{citekey}}",
+      "imageOutputPathTemplate": "500_Resources/Research/Images",
+      "imageBaseNameTemplate": "image",
+      "templatePath": "Templates/Zotero Template.md",
+      "cslStyle": "apa"
+    }
+  ],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "openNoteAfterImport": false,
+  "whichNotesToOpenAfterImport": "first-imported-note"
+}

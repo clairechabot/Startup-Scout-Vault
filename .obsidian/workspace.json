@@ -1,0 +1,319 @@
+{
+  "main": {
+    "id": "5324373015726ba8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4509724f8bf84da7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e7a7b303c61786dc",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ellipsis dashboard.md",
+                "mode": "preview",
+                "source": true
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "ellipsis dashboard"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "259fa79d3954150c",
+    "type": "split",
+    "children": [
+      {
+        "id": "559e28058abe4e10",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "32d219313f5042b0",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "aeb12d8a5a869844",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "fc62a18099a98760",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 279.5
+  },
+  "right": {
+    "id": "1593176f0c961f4b",
+    "type": "split",
+    "children": [
+      {
+        "id": "4bc5862bc5f44738",
+        "type": "tabs",
+        "dimension": 22.06776715899218,
+        "children": [
+          {
+            "id": "c2fb287265b993de",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "100_Network/Work Notes/2025/09-September/2025-09-14-Sunday.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 2025-09-14-Sunday"
+            }
+          },
+          {
+            "id": "bafcaa4d444c37c9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "100_Network/Work Notes/2025/09-September/2025-09-14-Sunday.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 2025-09-14-Sunday"
+            }
+          },
+          {
+            "id": "1deec96acf1bcfed",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "3eb53d103a8b73a3",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "e2898b80f9f96f75",
+            "type": "leaf",
+            "state": {
+              "type": "online.tokuhirom.obsidian-pomodoro-plugin",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "online.tokuhirom.obsidian-pomodoro-plugin"
+            }
+          },
+          {
+            "id": "63a6557627cb486a",
+            "type": "leaf",
+            "state": {
+              "type": "online.tokuhirom.obsidian-pomodoro-plugin",
+              "state": {},
+              "icon": "clock",
+              "title": "Pomodoro timer"
+            }
+          }
+        ],
+        "currentTab": 4
+      },
+      {
+        "id": "8679102790a2d5d0",
+        "type": "tabs",
+        "dimension": 22.589052997393573,
+        "children": [
+          {
+            "id": "27116122bb39b020",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "copilot-chat-view"
+            }
+          }
+        ]
+      },
+      {
+        "id": "8497c335149bc6e4",
+        "type": "tabs",
+        "dimension": 55.343179843614244,
+        "children": [
+          {
+            "id": "c71cc6eb6f55a620",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "calendar"
+            }
+          },
+          {
+            "id": "1f77a87ab5628467",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "ellipsis dashboard.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for ellipsis dashboard"
+            }
+          },
+          {
+            "id": "b29243846df1b549",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "ellipsis dashboard.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of ellipsis dashboard"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 400.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "graph:Open graph view": false,
+      "markdown-importer:Open format converter": false,
+      "zk-prefixer:Create new unique note": false,
+      "audio-recorder:Start/stop recording": false,
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "callout-manager:Insert Callout": false,
+      "homepage:Open homepage": false,
+      "janitor:Janitor: scan vault": false,
+      "omnisearch:Omnisearch": false,
+      "obsidian-advanced-slides:Show Slide Preview": false,
+      "templater-obsidian:Templater": false,
+      "time-ruler:Open Time Ruler": false,
+      "widgets:Add widget": false,
+      "obsidian-wordy:Wordy view": false,
+      "copilot:Open Copilot Chat": false,
+      "completed-task-display:Task Hider": false
+    }
+  },
+  "active": "e7a7b303c61786dc",
+  "lastOpenFiles": [
+    "100_Network/Scout Submissions/Hypatia Systems - Scout Submission.md",
+    "ellipsis dashboard.md",
+    "100_Network/Work Notes/2025/11-November/2025-11-24-Monday.md",
+    "Templates/Daily Note.md",
+    "100_Network/Work Notes/2025/11-November/2025-11-23-Sunday.md",
+    "100_Network/Work Notes/2025/11-November/2025-11-25-Tuesday.md",
+    "100 Lab Notes/Work Notes/2025/11-November/2025-11-25-Tuesday.md",
+    "100 Lab Notes/Work Notes/2025/11-November",
+    "100 Lab Notes/Work Notes/2025",
+    "100 Lab Notes/Work Notes",
+    "100 Lab Notes",
+    "100 Network/Work Notes/2025/11-November/2025-11-24-Monday.md",
+    "100 Network/Work Notes/2025/11-November",
+    "100 Network/Work Notes/2025",
+    "100 Network/Work Notes",
+    "100 Network",
+    "200_MOCs/Work Notes MOC.md",
+    "200_MOCs/Startup MOC.md",
+    "100_Network/Scout Submissions/New Scout Form.md",
+    "100_Network/Scout Submissions/Untitled.md",
+    "100_Network/Startups/Hypatia Systems.md",
+    "100_Network/Startups/New Startup.md",
+    "200_MOCs/Network MOC.md",
+    "100_Network/Contacts/New Contact.md",
+    "200_MOCs/Meetings MOC.md",
+    "100_Network/Meetings/Intro Call.md",
+    "100_Network/Meetings/Meeting.md",
+    "200_MOCs/Frameworks & Playbooks MOC.md",
+    "000_Admin/Market Maps/New Market Map.md",
+    "000_Admin/Frameworks/Screening/New Screening Framework.md",
+    "000_Admin/Frameworks/Pitches/New Pitch Framework.md",
+    "000_Admin/Due Diligence Checklists/New Checklist.md",
+    "000_Admin/Outreach Templates/New Outreach Template.md",
+    "200_MOCs/Definition MOC.md",
+    "300_Knowledge Base/Classes/History of Scientific Revolutions",
+    "Files/Attachments/Pasted image 20250910155041.png",
+    "Files/Attachments/endre-tech-pre-seed.pdf",
+    "VC_Vault/Files/Banners/yellow_network.jpg",
+    "VC_Vault/Files/Banners/yellow-glow-sand.jpg",
+    "VC_Vault/Files/Banners/StockCake-Neon Library Future_1758139104.jpg",
+    "VC_Vault/Files/Banners/startup_MOC_banner.png",
+    "VC_Vault/Files/Banners/neon_work_notes.jpg",
+    "VC_Vault/Files/Banners/neon_wave.png",
+    "VC_Vault/Files/Banners/neon_startup.jpg",
+    "VC_Vault/Files/Banners/neon_shapes.jpg",
+    "VC_Vault/Files/Banners/neon_network.jpg"
+  ]
+}
