@@ -1,0 +1,49 @@
+########################
+# OS / editor junk
+########################
+.DS_Store
+Thumbs.db
+desktop.ini
+Icon?
+ehthumbs.db
+
+# VS Code / IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+########################
+# Obsidian specific
+########################
+
+# Cache and session files
+.obsidian/cache/
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+
+# Obsidian trash
+.obsidian/trash/
+.trash/
+
+# Plugin caches, keep settings but not heavy cache data
+.obsidian/plugins/*/cache/
+.obsidian/plugins/*/node_modules/
+.obsidian/plugins/*/data.json.bak
+
+########################
+# Logs, temp
+########################
+*.log
+*.tmp
+*.temp
+~$*
+
+########################
+# Optional, ignore large exports
+########################
+# Exports/
+# .exported/
+# *.pdf
+# *.zip
