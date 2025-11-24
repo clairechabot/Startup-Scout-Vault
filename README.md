@@ -6,6 +6,11 @@ This is an Obsidian vault template for scouts who want a **structured, data driv
 It is the VC equivalent of a lab notebook. It is meant to be used every day to think, log, and connect information.
 
 ---
+## 📸 What's Inside?
+
+<p align="center">
+  <img src="README_assets/scout-dashboard.png" alt="Ellipsis Scout dashboard preview" width="85%">
+</p>
 
 ## 1. Vault Structure
 
@@ -26,9 +31,31 @@ It is the VC equivalent of a lab notebook. It is meant to be used every day to t
 | Folder Path              | Purpose                                                          | Key MOC(s)                          |
 |--------------------------|------------------------------------------------------------------|-------------------------------------|
 | `100_Network`           | Active deal flow. Startups, Contacts, Firms, Meetings, Submissions. | `[[Startup MOC]]`, `[[Network MOC]]` |
+| `200_MOCs`             | Contains all the MOCs. | N/A                                 |
 | `300_Knowledge Base`    | Learning and reference. Academic courses, sector summaries, definitions. | `[[Academic MOC]]`, `[[Definition MOC]]` |
+| `400_Reflections`             | All personal, random notes. | N/A                                 |
+| `500_Resources`             | If you connect Zotero, your research notes will be parsed into the 'Research' folder. Same if you use the PodNotes plugin for the 'Podcasts' folder. | N/A                                 |
 | `000_Admin`             | Internal documents, frameworks, and repeatable processes.        | `[[Frameworks & Playbooks MOC]]`    |
 | `Templates`             | All note templates. Startup, Meeting, Scout Submission, Zotero, etc. | N/A                                 |
+| `Files`             | Any images added to a note are automatically organised into 'Attachments'. 'Banners' is for the style of each page. 'JS' contains Javascript. | N/A                                 |
+
+## 🗺️ Map of Content Previews
+
+<p align="center">
+  <img src="README_assets/startup-moc.png"   alt="Startup MOC"   width="30%">
+  <img src="README_assets/network-moc.png"   alt="Network MOC"   width="30%">
+  <img src="README_assets/meetings-moc.png"  alt="Meetings MOC"  width="30%">
+</p>
+
+<p align="center">
+  <img src="README_assets/academic-moc.png"   alt="Academic MOC"   width="30%">
+  <img src="README_assets/definition-moc.png" alt="Definition MOC" width="30%">
+  <img src="README_assets/frameworks-moc.png" alt="Frameworks MOC" width="30%">
+</p>
+
+<p align="center">
+  <img src="README_assets/daily-notes-moc.png" alt="Daily Notes / Work Notes MOC" width="30%">
+</p>
 
 ---
 
