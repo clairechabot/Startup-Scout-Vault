@@ -1,6 +1,6 @@
-# 🚀 Ellipsis VC Scout Vault
+# 🚀 VC Scout Vault
 
-Welcome to the **Ellipsis VC Scout Vault**.  
+Welcome to the **VC Scout Vault**.  
 This is an Obsidian vault template for scouts who want a **structured, data driven system** for managing deal flow, networks, and knowledge.
 
 It is the VC equivalent of a lab notebook. It is meant to be used every day to think, log, and connect information.
