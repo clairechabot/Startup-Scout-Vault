@@ -62,6 +62,21 @@ date_modified: 2026-03-07
 > >   - type: command
 > >     command: daily-notes
 > > ```
+>
+> > [!col-md]
+> >
+> > ```meta-bind-button
+> > label: Weekly Review
+> > icon: "bar-chart-2"
+> > style: primary
+> > id: "new-weekly-review"
+> > actions:
+> >   - type: templaterCreateNote
+> >     templateFile: Templates/Weekly Review Template.md
+> >     folderPath: 400_Reflections
+> >     fileName: <% tp.date.now("YYYY-[W]WW") %> Weekly Review
+> >     openNote: true
+> > ```
 
 ---
 
