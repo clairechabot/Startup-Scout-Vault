@@ -17,11 +17,24 @@ tags:
   - people
   - contact
 date_created: <% tp.date.now("YYYY-MM-DD") %>
-relationship_status: New
-Institutions: 
+relationship_status: Prospect
 ---
 
 [[People MOC]]
+
+```ad-note
+title: Relationship Status Progression
+collapse: closed
+Prospect → Introduced → Active → Dormant | Archived
+
+- **Prospect** — On radar, not yet met
+- **Introduced** — Have connected, relationship warming
+- **Active** — Regular engagement, strong trust
+- **Dormant** — Gone quiet, worth a nudge
+- **Archived** — No longer relevant
+
+See [[Status Standards]] for the full reference.
+```
 
 # Profile
 
@@ -34,7 +47,7 @@ Institutions:
 - **Sector:** `VIEW[{sector_focus}]`
 
 ## Relationship Context
-- **Status:** `INPUT[inlineSelect(option(New), option(Warm), option(Strong), option(Cold)):relationship_status]`
+- **Status:** `INPUT[inlineSelect(option(Prospect), option(Introduced), option(Active), option(Dormant), option(Archived)):relationship_status]`
 
 ---
 

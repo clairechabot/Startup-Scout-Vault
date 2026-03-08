@@ -36,7 +36,7 @@ const people = dv.pages('"100_Network/People"');
 const founders   = people.where(p => (p.role ?? "").toLowerCase().includes("founder")).length;
 const investors  = people.where(p => (p.role ?? "").toLowerCase().includes("investor") || (p.role ?? "").toLowerCase().includes("vc") || (p.role ?? "").toLowerCase().includes("angel")).length;
 const advisors   = people.where(p => (p.role ?? "").toLowerCase().includes("advisor") || (p.role ?? "").toLowerCase().includes("expert") || (p.role ?? "").toLowerCase().includes("operator")).length;
-const warm       = people.where(p => p.relationship_status === "Warm" || p.relationship_status === "Strong").length;
+const warm       = people.where(p => p.relationship_status === "Introduced" || p.relationship_status === "Active").length;
 
 const html = `
 <div style="display: flex; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; align-items: stretch;">
@@ -58,7 +58,7 @@ const html = `
 
   <div style="flex: 1; min-width: 120px; padding: 20px; border-radius: 12px; border: 1px solid rgba(0, 255, 120, 0.5); background: rgba(0, 255, 120, 0.05); text-align: center; box-shadow: 0 0 10px rgba(0, 255, 120, 0.1);">
     <div style="font-size: 28px; font-weight: 800; color: #00ff78; line-height: 1; margin-bottom: 8px;">${warm}</div>
-    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; color: #fff;">Warm / Strong</div>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; color: #fff;">Introduced / Active</div>
   </div>
 
 </div>
@@ -70,43 +70,53 @@ dv.paragraph(html);
 
 # Relationship Heat Map
 
-_Prioritise the warm ones. Cold relationships decay — schedule a touch._
+_Prioritise Active and Introduced. Dormant relationships decay — schedule a touch._
 
-## Strong
-
-```dataview
-TABLE role AS "Role", company AS "Org", sector_focus AS "Thesis Fit"
-FROM "100_Network/People"
-WHERE relationship_status = "Strong"
-SORT file.mtime DESC
-```
-
-## Warm
+## Active
 
 ```dataview
 TABLE role AS "Role", company AS "Org", sector_focus AS "Thesis Fit"
 FROM "100_Network/People"
-WHERE relationship_status = "Warm"
+WHERE relationship_status = "Active"
 SORT file.mtime DESC
 ```
 
-## New (needs nurturing)
+## Introduced
+
+```dataview
+TABLE role AS "Role", company AS "Org", sector_focus AS "Thesis Fit"
+FROM "100_Network/People"
+WHERE relationship_status = "Introduced"
+SORT file.mtime DESC
+```
+
+## Prospect (not yet met)
 
 ```dataview
 TABLE role AS "Role", company AS "Org", date_created AS "Added"
 FROM "100_Network/People"
-WHERE relationship_status = "New" OR !relationship_status
+WHERE relationship_status = "Prospect" OR !relationship_status
 SORT date_created DESC
 LIMIT 20
 ```
 
-## Cold (dormant)
+## Dormant (needs a nudge)
 
 ```dataview
 TABLE role AS "Role", company AS "Org"
 FROM "100_Network/People"
-WHERE relationship_status = "Cold"
+WHERE relationship_status = "Dormant"
 SORT file.mtime ASC
+LIMIT 10
+```
+
+## Archived
+
+```dataview
+TABLE role AS "Role", company AS "Org"
+FROM "100_Network/People"
+WHERE relationship_status = "Archived"
+SORT file.mtime DESC
 LIMIT 10
 ```
 
@@ -162,7 +172,7 @@ dv.table(
         p.file.link,
         p.role ?? "-",
         p.sector_focus ?? "-",
-        p.relationship_status ?? "New"
+        p.relationship_status ?? "Prospect"
     ])
 );
 ```

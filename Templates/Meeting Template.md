@@ -3,7 +3,7 @@ date_created: <% tp.date.now("YYYY-MM-DD") %>
 type: meeting
 company:
 summary:
-status:
+status: Scheduled
 location:
 startdate:
 start_time:
@@ -13,7 +13,25 @@ tags:
   - meeting
 ---
 [[Meetings MOC]]
-%% [[Meeting Template]] %% 
+
+```ad-note
+title: Meeting Status Progression
+collapse: closed
+Scheduled → Completed | Follow-up Pending | Cancelled | Rescheduled
+
+- **Scheduled** — Confirmed, hasn't happened yet
+- **Completed** — Done, notes written
+- **Follow-up Pending** — Done, action item required before closing
+- **Cancelled** — Did not happen, not rescheduled
+- **Rescheduled** — Moved — update startdate
+
+See [[Status Standards]] for the full reference.
+```
+
+> [!NOTE] Logistics
+> **Company:** `INPUT[text:company]`
+> **Status:** `INPUT[inlineSelect(option(Scheduled), option(Completed), option(Follow-up Pending), option(Cancelled), option(Rescheduled)):status]`
+> **Date:** `INPUT[datePicker:startdate]`
 
 ---
 

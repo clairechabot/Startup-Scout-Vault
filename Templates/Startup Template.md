@@ -28,11 +28,21 @@ tags:
 
 [[ellipsis dashboard]]
 
+```ad-note
+title: Status Progression Reference
+collapse: closed
+**deal_status:** Screening → Call Scheduled → In DD → Active → Ongoing → Invested | Paused | Passed
+**deal_temperature:** Hot (act now) | Warm (good fit, timing TBD) | Cold (monitor)
+
+Temperature is independent of status — a Screening deal can be Hot.
+See [[Status Standards]] for definitions of every value.
+```
+
 # Deal Overview
 
 > [!NOTE] Quick Actions
 > **Status:** `INPUT[inlineSelect(option(Screening), option(Call Scheduled), option(In DD), option(Active), option(Ongoing), option(Invested), option(Paused), option(Passed)):deal_status]`
-> **Temperature:** `INPUT[inlineSelect(option(hot), option(warm), option(cold)):deal_temperature]`
+> **Temperature:** `INPUT[inlineSelect(option(Hot), option(Warm), option(Cold)):deal_temperature]`
 > **Scout Form Sent:** `INPUT[toggle:scout_form]`
 > **Investor Types:** `INPUT[multiSelect(option(VC), option(Angel), option(Grant), option(Corporate)):investor_types]`
 

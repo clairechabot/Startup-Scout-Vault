@@ -92,7 +92,7 @@ LIMIT 15
 ```dataview
 TABLE startdate AS "Date", start_time AS "Time", company AS "Company", summary AS "Topic"
 FROM "100_Network/Meetings"
-WHERE status = "planned" AND startdate >= date(today)
+WHERE (status = "Scheduled" OR status = "Follow-up Pending") AND startdate >= date(today)
 SORT startdate ASC
 LIMIT 7
 ```

@@ -34,14 +34,14 @@ actions:
 // --- SUBMISSION PIPELINE STATS ---
 const subs = dv.pages('"100_Network/Scout Submissions"');
 
-const drafts    = subs.where(p => p.submission_status === "Draft").length;
-const ready     = subs.where(p => p.submission_status === "Ready").length;
-const submitted = subs.where(p => p.submission_status === "Submitted").length;
-const total     = subs.length;
+const drafts      = subs.where(p => p.submission_status === "Draft").length;
+const inProgress  = subs.where(p => p.submission_status === "In Progress").length;
+const submitted   = subs.where(p => p.submission_status === "Submitted" || p.submission_status === "Reviewed" || p.submission_status === "Accepted" || p.submission_status === "Rejected" || p.submission_status === "Withdrawn").length;
+const total       = subs.length;
 
 // Average composite score for submitted deals
 const scoredSubs = subs.where(p =>
-    p.submission_status === "Submitted" &&
+    (p.submission_status === "Submitted" || p.submission_status === "Reviewed" || p.submission_status === "Accepted") &&
     p.team_score && p.value_prop_score && p.traction_score && p.market_score
 );
 let avgScore = "-";
@@ -66,8 +66,8 @@ const html = `
   </div>
 
   <div style="flex: 1; min-width: 120px; padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 0, 255, 0.5); background: rgba(255, 0, 255, 0.05); text-align: center; box-shadow: 0 0 10px rgba(255, 0, 255, 0.1);">
-    <div style="font-size: 28px; font-weight: 800; color: #ff00ff; line-height: 1; margin-bottom: 8px;">${ready}</div>
-    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; color: #fff;">Ready to Send</div>
+    <div style="font-size: 28px; font-weight: 800; color: #ff00ff; line-height: 1; margin-bottom: 8px;">${inProgress}</div>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; color: #fff;">In Progress</div>
   </div>
 
   <div style="flex: 1; min-width: 120px; padding: 20px; border-radius: 12px; border: 1px solid rgba(0, 255, 120, 0.5); background: rgba(0, 255, 120, 0.05); text-align: center; box-shadow: 0 0 10px rgba(0, 255, 120, 0.1);">
@@ -89,9 +89,9 @@ dv.paragraph(html);
 
 # Action Required
 
-## Drafts in Progress
+## Draft (skeleton only)
 
-_Finish these before they go stale._
+_Haven't started writing yet._
 
 ```dataview
 TABLE target_company AS "Startup", date_created AS "Started", raising AS "Raising?"
@@ -100,14 +100,14 @@ WHERE submission_status = "Draft"
 SORT date_created ASC
 ```
 
-## Ready to Submit
+## In Progress (actively writing)
 
-_These are done — open Airtable and send._
+_These need finishing — oldest first to fight staleness._
 
 ```dataview
-TABLE target_company AS "Startup", date_created AS "Drafted"
+TABLE target_company AS "Startup", date_created AS "Started", raising AS "Raising?"
 FROM "100_Network/Scout Submissions"
-WHERE submission_status = "Ready"
+WHERE submission_status = "In Progress"
 SORT date_created ASC
 ```
 
@@ -116,9 +116,9 @@ SORT date_created ASC
 # Submitted Pipeline
 
 ```dataview
-TABLE target_company AS "Startup", date_created AS "Submitted", invest_verdict AS "Verdict"
+TABLE target_company AS "Startup", submission_status AS "Stage", date_created AS "Date", invest_verdict AS "Verdict"
 FROM "100_Network/Scout Submissions"
-WHERE submission_status = "Submitted"
+WHERE submission_status = "Submitted" OR submission_status = "Reviewed" OR submission_status = "Accepted" OR submission_status = "Rejected" OR submission_status = "Withdrawn"
 SORT date_created DESC
 ```
 
@@ -175,7 +175,8 @@ subs.forEach(s => {
     }
     if (!sectorMap[sector]) sectorMap[sector] = { total: 0, submitted: 0 };
     sectorMap[sector].total += 1;
-    if (s.submission_status === "Submitted") sectorMap[sector].submitted += 1;
+    const sentStatuses = ["Submitted", "Reviewed", "Accepted", "Rejected", "Withdrawn"];
+    if (sentStatuses.includes(s.submission_status)) sectorMap[sector].submitted += 1;
 });
 
 const rows = Object.entries(sectorMap)

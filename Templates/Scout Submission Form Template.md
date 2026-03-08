@@ -20,8 +20,24 @@ raising: Yes
 
 # Submission Draft: <% tp.file.title %>
 
+```ad-note
+title: Submission Status Progression
+collapse: closed
+Draft → In Progress → Submitted → Reviewed → Accepted | Rejected | Withdrawn
+
+- **Draft** — Skeleton created, not yet being written
+- **In Progress** — Actively writing, key sections still incomplete
+- **Submitted** — Sent to Airtable form
+- **Reviewed** — Partner team has seen it
+- **Accepted** — Deal moved into partner pipeline
+- **Rejected** — Passed by the fund
+- **Withdrawn** — Scout pulled the submission
+
+See [[Status Standards]] for the full reference.
+```
+
 > [!NOTE] Actions
-> **Status:** `INPUT[inlineSelect(option(Draft), option(Ready), option(Submitted)):submission_status]`
+> **Status:** `INPUT[inlineSelect(option(Draft), option(In Progress), option(Submitted), option(Reviewed), option(Accepted), option(Rejected), option(Withdrawn)):submission_status]`
 >  [Click here to open Airtable](https://airtable.com/app8pOOPifhS6GORl/pagzEa0tdLFg1kAsc/form)
 
 <br> 

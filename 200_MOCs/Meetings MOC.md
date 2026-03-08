@@ -54,12 +54,12 @@ const now = dv.date("today");
 const thisMonth = now.month;
 const thisYear  = now.year;
 
-const scheduled   = meetings.where(p => p.status === "planned" && p.startdate >= now).length;
+const scheduled   = meetings.where(p => (p.status === "Scheduled" || p.status === "Follow-up Pending") && p.startdate >= now).length;
 const founderCalls = meetings.where(p => (p.tags ?? []).includes("startup_intro")).length;
 const doneThisMonth = meetings.where(p => {
     if (!p.startdate) return false;
     const d = p.startdate;
-    return p.status !== "planned" && d.month === thisMonth && d.year === thisYear;
+    return (p.status === "Completed" || p.status === "Follow-up Pending" || p.status === "Cancelled") && d.month === thisMonth && d.year === thisYear;
 }).length;
 const followupsDue = meetings.where(p => {
     return (p.file.tasks ?? []).filter(t => !t.completed && t.due && t.due <= now.plus({days: 7})).length > 0;
@@ -100,7 +100,7 @@ dv.paragraph(html);
 ```dataview
 TABLE startdate AS "Date", start_time AS "Time", company AS "Company", summary AS "Topic", location AS "Location"
 FROM "100_Network/Meetings"
-WHERE status = "planned" AND startdate >= date(today)
+WHERE (status = "Scheduled" OR status = "Follow-up Pending") AND startdate >= date(today)
 SORT startdate ASC, start_time ASC
 ```
 
@@ -166,18 +166,18 @@ _Internal calls, networking, partner meetings._
 ```dataview
 TABLE startdate AS "Date", company AS "Related Entity", summary AS "Topic", status AS "Status"
 FROM "100_Network/Meetings"
-WHERE !contains(tags, "startup_intro") AND status != "planned"
+WHERE !contains(tags, "startup_intro") AND (status = "Completed" OR status = "Follow-up Pending" OR status = "Cancelled" OR status = "Rescheduled")
 SORT startdate DESC
 LIMIT 30
 ```
 
 ---
 
-# Cancelled / No-Show
+# Cancelled / Rescheduled
 
 ```dataview
-TABLE startdate AS "Date", company AS "Company", summary AS "Topic"
+TABLE startdate AS "Date", company AS "Company", summary AS "Topic", status AS "Status"
 FROM "100_Network/Meetings"
-WHERE status = "cancelled" OR status = "no-show"
+WHERE status = "Cancelled" OR status = "Rescheduled"
 SORT startdate DESC
 ```
