@@ -11,21 +11,43 @@ tags: [MOC, people, crm]
 _"Strong relationships compound. Every warm connection is a future deal."_
 ```
 
-```meta-bind-button
-label: New Person
-icon: "user-plus"
-hidden: false
-class: ""
-tooltip: "Add a new person or org to the network"
-id: "new-person-btn"
-style: primary
-actions:
-  - type: templaterCreateNote
-    templateFile: Templates/People Professional.md
-    folderPath: 100_Network/People
-    fileName: New Person
-    openNote: true
-```
+> [!col]
+>
+> > [!col-md]
+> >
+> > ```meta-bind-button
+> > label: New Person
+> > icon: "user-plus"
+> > hidden: false
+> > class: ""
+> > tooltip: "Add a new person or org to the network"
+> > id: "new-person-btn"
+> > style: primary
+> > actions:
+> >   - type: templaterCreateNote
+> >     templateFile: Templates/People Professional.md
+> >     folderPath: 100_Network/People
+> >     fileName: New Person
+> >     openNote: true
+> > ```
+>
+> > [!col-md]
+> >
+> > ```meta-bind-button
+> > label: New Warm Intro
+> > icon: "link-2"
+> > hidden: false
+> > class: ""
+> > tooltip: "Facilitate a founder ↔ investor introduction"
+> > id: "new-warm-intro-btn"
+> > style: primary
+> > actions:
+> >   - type: templaterCreateNote
+> >     templateFile: Templates/Warm Intro Template.md
+> >     folderPath: 100_Network/Intros
+> >     fileName: New Warm Intro
+> >     openNote: true
+> > ```
 
 <br>
 
