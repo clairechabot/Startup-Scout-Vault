@@ -27,24 +27,24 @@ actions:
     openNote: true
 ```
 
-<br> 
+<br>
 
 ```dataviewjs
-
 // --- DATA COLLECTION ---
 const pages = dv.pages('"100_Network/Startups"');
 const by = s => pages.where(p => (p.deal_status ?? "").toLowerCase().includes(s));
 
 // Counts
-const ongoing = by("ongoing").length + by("in dd").length + by("active").length + by("call").length;
+const ongoing  = by("ongoing").length + by("in dd").length + by("active").length + by("call").length;
 const invested = by("invested").length;
-const paused = by("paused").length;
+const paused   = by("paused").length;
 const archived = by("archiv").length + by("passed").length;
-const recent = pages.where(p => p.file.mtime.ts >= (Date.now() - 1000*60*60*24*30)).length;
+const hot      = pages.where(p => (p.deal_temperature ?? "").toLowerCase() === "hot").length;
+const recent   = pages.where(p => p.file.mtime.ts >= (Date.now() - 1000*60*60*24*30)).length;
 
-// --- RENDER DASHBOARD (Clean HTML) ---
+// --- RENDER DASHBOARD ---
 const html = `
-<div style="display: flex; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; align-items: stretch;">
+<div style="display: flex; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; align-items: stretch;">
 
   <div style="flex: 1; min-width: 120px; padding: 20px; border-radius: 12px; border: 1px solid rgba(0, 255, 255, 0.5); background: rgba(0, 255, 255, 0.05); text-align: center; box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);">
     <div style="font-size: 28px; font-weight: 800; color: #00ffff; line-height: 1; margin-bottom: 8px;">${ongoing}</div>
@@ -66,16 +66,58 @@ const html = `
     <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; color: #fff;">Archived</div>
   </div>
 
+  <div style="flex: 1; min-width: 120px; padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 80, 60, 0.7); background: rgba(255, 80, 60, 0.08); text-align: center; box-shadow: 0 0 14px rgba(255, 80, 60, 0.2);">
+    <div style="font-size: 28px; font-weight: 800; color: #ff503c; line-height: 1; margin-bottom: 8px;">${hot}</div>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; color: #fff;">Hot</div>
+  </div>
+
 </div>
 
 <div style="padding: 12px 16px; border-radius: 8px; border-left: 4px solid #00ffff; background: linear-gradient(90deg, rgba(0,255,255,0.1) 0%, transparent 100%); font-size: 13px; color: #ddd; display: flex; align-items: center;">
-  <span style="font-size: 16px; margin-right: 10px;">⚡</span> 
+  <span style="font-size: 16px; margin-right: 10px;">&#9889;</span>
   <span><b>Momentum:</b> <span style="color: #00ffff;">${recent}</span> startups updated in the last 30 days.</span>
 </div>
 `;
-
 dv.paragraph(html);
+```
 
+---
+
+# Hot Deals
+
+_Temperature marked `hot` — act on these first._
+
+```dataviewjs
+const pages   = dv.pages('"100_Network/Startups"').where(p => (p.deal_temperature ?? "").toLowerCase() === "hot");
+const meetings = dv.pages('"100_Network/Meetings"');
+
+if (pages.length === 0) {
+    dv.paragraph("_No hot deals right now. Mark a deal as `hot` in its frontmatter to surface it here._");
+} else {
+    const rows = pages.map(s => {
+        const lastMeeting = meetings
+            .where(m => m.company && (m.company.path === s.file.path || (m.company.toString() ?? "").includes(s.file.name)))
+            .sort(m => m.startdate, "desc")
+            .first();
+        const lastDate = lastMeeting?.startdate ?? "-";
+
+        const people = (s.related_people ?? []).map(p => p.path ? `[[${p.path.split("/").pop()}]]` : p.toString()).join(", ");
+
+        return [
+            s.file.link,
+            s.deal_status ?? "-",
+            lastDate,
+            s.next_action ?? "-",
+            s.next_action_date ?? "-",
+            people || "-"
+        ];
+    });
+
+    dv.table(
+        ["Company", "Status", "Last Meeting", "Next Action", "Due", "Key People"],
+        rows.sort(r => r[4])
+    );
+}
 ```
 
 ---
@@ -87,56 +129,48 @@ dv.paragraph(html);
 const startupFolder = '"100_Network/Startups"';
 const meetingFolder = '"100_Network/Meetings"';
 
-// Fetch pages
 const startups = dv.pages(startupFolder).where(p => p.file.name !== "Startup Template");
 const meetings = dv.pages(meetingFolder);
 
-// Create the table rows
+const tempLabel = t => {
+    const v = (t ?? "").toLowerCase();
+    if (v === "hot")  return "🔴 Hot";
+    if (v === "warm") return "🟡 Warm";
+    if (v === "cold") return "🔵 Cold";
+    return "-";
+};
+
 const rows = startups.map(s => {
-    
-    // 1. Find meetings related to this company
-    // We check if the meeting's 'company' field links to this startup
     const companyMeetings = meetings.where(m => {
         if (!m.company) return false;
-        // Handle if company is a Link [[Company]] or just text "Company"
-        let linkPath = m.company.path ? m.company.path : ""; 
-        let linkText = m.company.path ? "" : m.company.toString();
-        
-        return linkPath === s.file.path || linkText.includes(s.file.name);
+        const path = m.company.path ?? "";
+        const text = m.company.path ? "" : m.company.toString();
+        return path === s.file.path || text.includes(s.file.name);
     });
 
-    // 2. Get the most recent meeting date
     let lastMeetingDate = "-";
     if (companyMeetings.length > 0) {
-        // Sort by startdate descending and pick the first
-        let sorted = companyMeetings.sort(m => m.startdate, 'desc');
-        if (sorted[0].startdate) {
-            lastMeetingDate = sorted[0].startdate;
-        }
+        const sorted = companyMeetings.sort(m => m.startdate, "desc");
+        if (sorted[0].startdate) lastMeetingDate = sorted[0].startdate;
     }
 
-    // 3. Scout Form Check (looks for 'scout_form: true' in YAML)
-    let formStatus = "⬜"; // Default empty
-    if (s.scout_form === true || s.scout_form === "yes") {
-        formStatus = "✅";
-    } else if (s.scout_form === false || s.scout_form === "no") {
-        formStatus = "❌";
-    }
+    const formStatus = s.scout_form === true || s.scout_form === "yes" ? "✅"
+                     : s.scout_form === false || s.scout_form === "no"  ? "❌"
+                     : "⬜";
 
-    // 4. Map the row data
     return [
         s.file.link,
-        s.date_created,       // First Contacted (Creation Date)
-        lastMeetingDate,      // Most recent meeting found in Meetings folder
-        formStatus,           // Scout Form Submitted?
-        s.deal_status         // Final Decision/Status
+        s.date_created,
+        lastMeetingDate,
+        formStatus,
+        tempLabel(s.deal_temperature),
+        s.deal_status
     ];
 });
 
-// Render Table
 dv.table(
-    ["Company", "First Contacted", "Last Meeting", "Form Sent", "Status"], 
-    rows.sort(r => r[1], 'desc') // Sort by First Contacted (Newest first)
+    ["Company", "First Contacted", "Last Meeting", "Form", "Temp", "Status"],
+    rows.sort(r => r[1], "desc")
 );
 ```
 
@@ -146,27 +180,35 @@ dv.table(
 
 _Next 14 Days_
 
-
 ```dataview
-
 TABLE company AS Company, sector AS Sector, stage AS Stage, next_action AS "Next Action", next_action_date AS "Due"
 FROM "100_Network/Startups"
 WHERE deal_status AND next_action_date != null AND next_action_date <= date(today) + dur(14 days)
-SORT next_action_date asc
-
+SORT next_action_date ASC
 ```
 
 ---
 
 # Sector Overview
 
-```dataview 
+```dataviewjs
+const pages = dv.pages('"100_Network/Startups"').where(p => p.file.name !== "Startup Template");
 
-TABLE length(rows) AS Count
-FROM "100_Network/Startups"
-GROUP BY sector
-SORT Count desc
+const sectorMap = {};
+pages.forEach(p => {
+    const sector = p.sector ?? "Unknown";
+    if (!sectorMap[sector]) sectorMap[sector] = { total: 0, hot: 0, warm: 0 };
+    sectorMap[sector].total += 1;
+    const temp = (p.deal_temperature ?? "").toLowerCase();
+    if (temp === "hot")  sectorMap[sector].hot  += 1;
+    if (temp === "warm") sectorMap[sector].warm += 1;
+});
 
+const rows = Object.entries(sectorMap)
+    .sort((a, b) => b[1].total - a[1].total)
+    .map(([sector, c]) => [sector, c.total, c.hot > 0 ? `🔴 ${c.hot}` : "-", c.warm > 0 ? `🟡 ${c.warm}` : "-"]);
+
+dv.table(["Sector", "Total", "Hot", "Warm"], rows);
 ```
 
 ---
@@ -181,7 +223,7 @@ class: ""
 cssStyle: ""
 backgroundImage: ""
 tooltip: ""
-id: ""
+id: "new-scout-form-btn"
 hidden: false
 actions:
   - type: templaterCreateNote
@@ -190,22 +232,21 @@ actions:
     fileName: New Scout Form
     openNote: true
     openIfAlreadyExists: false
-
 ```
 
-### Drafts 
+### Drafts
+
 ```dataview
-TABLE target_company as "Startup", date_created as "Started"
+TABLE target_company AS "Startup", date_created AS "Started"
 FROM "100_Network/Scout Submissions"
 WHERE submission_status = "Draft"
 SORT date_created DESC
 ```
 
-### Submitted 
-
+### Submitted
 
 ```dataview
-TABLE target_company as "Startup", date_created as "Date"
+TABLE target_company AS "Startup", date_created AS "Date"
 FROM "100_Network/Scout Submissions"
 WHERE submission_status = "Submitted"
 SORT date_created DESC
